@@ -3,21 +3,23 @@
 import React from 'react';
 import { Box } from '../types/grid';
 import { gridToPixels } from '../utils/gridUtils';
+
 interface GridBoxProps {
   box: Box;
   isSelected: boolean;
   onClick: (box: Box, e: React.MouseEvent) => void;
+  cellSize: number;
 }
 
-export const GridBox: React.FC<GridBoxProps> = ({ box, isSelected, onClick }) => {
+export const GridBox: React.FC<GridBoxProps> = ({ box, isSelected, onClick, cellSize }) => {
   if (isSelected) return null;
   
-  const pixels = gridToPixels(box.col, box.row, box.width, box.height);
+  const pixels = gridToPixels(box.col, box.row, box.width, box.height, cellSize);
   
   return (
     <div
       onClick={(e) => onClick(box, e)}
-      className="absolute cursor-pointer transition-all hover:opacity-90"
+      className="absolute transition-all cursor-pointer hover:opacity-90"
       style={{
         left: pixels.x,
         top: pixels.y,
@@ -28,7 +30,7 @@ export const GridBox: React.FC<GridBoxProps> = ({ box, isSelected, onClick }) =>
         boxShadow: '0 4px 6px rgba(0,0,0,0.3)',
       }}
     >
-      <div className="flex items-center justify-center h-full text-white font-semibold">
+      <div className="flex items-center justify-center h-full text-sm font-semibold text-white md:text-base">
         Box {box.id}
       </div>
     </div>
