@@ -1,9 +1,9 @@
-/* Tailwind CSS directives */
+/* Tailwind CSS directives - inject Tailwind's base, component, and utility styles */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Reset default body spacing */
+/* Reset default body spacing to remove browser defaults */
 body {
   margin: 0;
   padding: 0;
@@ -11,16 +11,16 @@ body {
 
 /* Allow grid to scroll on small screens when it exceeds viewport */
 .grid-scroll-container {
-  overflow-x: auto;
-  overflow-y: auto;
+  overflow-x: auto; /* Horizontal scroll if needed */
+  overflow-y: auto; /* Vertical scroll if needed */
 }
 
-/* Hide scrollbar for Chrome, Safari and Opera */
+/* Hide scrollbar for Chrome, Safari and Opera (keeps scrolling functional) */
 .grid-scroll-container::-webkit-scrollbar {
   display: none;
 }
 
-/* Hide scrollbar for IE, Edge and Firefox */
+/* Hide scrollbar for IE, Edge and Firefox (keeps scrolling functional) */
 .grid-scroll-container {
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;     /* Firefox */
