@@ -4,6 +4,7 @@ interface ToolbarProps {
   onAddBox: () => void
 }
 
+// Top toolbar: displays title, instructions, and Add Box button
 const Toolbar: React.FC<ToolbarProps> = ({ onAddBox }) => {
   return (
     <div className="mb-4 md:mb-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">

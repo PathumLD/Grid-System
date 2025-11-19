@@ -6,6 +6,8 @@ export const metadata: Metadata = {
   description: 'Dynamic grid layout with draggable and resizable boxes',
 }
 
+
+// Root layout: wraps entire Next.js app with HTML structure and global styles
 export default function RootLayout({
   children,
 }: {

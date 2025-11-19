@@ -1,13 +1,15 @@
+/* Tailwind CSS directives */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+/* Reset default body spacing */
 body {
   margin: 0;
   padding: 0;
 }
 
-/* Ensure grid container is scrollable on small screens */
+/* Allow grid to scroll on small screens when it exceeds viewport */
 .grid-scroll-container {
   overflow-x: auto;
   overflow-y: auto;
@@ -20,6 +22,6 @@ body {
 
 /* Hide scrollbar for IE, Edge and Firefox */
 .grid-scroll-container {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;     /* Firefox */
 }

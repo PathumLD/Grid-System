@@ -9,7 +9,9 @@ interface GridBoxProps {
   gridConfig: { COLS: number, CELL_SIZE: number, GAP: number }
 }
 
+// Renders a non-selected box at its snapped grid position
 const GridBox: React.FC<GridBoxProps> = ({ box, onClick, onDelete, gridConfig }) => {
+  // Convert grid coordinates to pixel position
   const pos = getAbsolutePosition(box, gridConfig)
   const { GAP } = gridConfig
 
@@ -17,7 +19,7 @@ const GridBox: React.FC<GridBoxProps> = ({ box, onClick, onDelete, gridConfig })
     <div
       className="absolute bg-blue-500 hover:bg-blue-600 rounded-md sm:rounded-lg cursor-pointer transition-colors flex items-center justify-center text-white font-bold text-xl sm:text-2xl border-2 border-blue-400 group"
       style={{
-        left: pos.left + GAP/2,
+        left: pos.left + GAP/2,   // Offset by half gap for centering
         top: pos.top + GAP/2,
         width: pos.width,
         height: pos.height,
@@ -25,11 +27,12 @@ const GridBox: React.FC<GridBoxProps> = ({ box, onClick, onDelete, gridConfig })
       onClick={(e) => onClick(e, box)}
     >
       <span>{box.id}</span>
+      {/* Delete button appears on hover (group-hover) */}
       {onDelete && (
         <button
           className="absolute top-0.5 right-0.5 sm:top-1 sm:right-1 w-5 h-5 sm:w-6 sm:h-6 bg-red-500 hover:bg-red-600 rounded-full opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-xs sm:text-sm"
           onClick={(e) => {
-            e.stopPropagation()
+            e.stopPropagation() // Prevent box selection when deleting
             onDelete(box.id)
           }}
         >

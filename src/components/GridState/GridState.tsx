@@ -5,6 +5,7 @@ interface GridStateProps {
   boxes: Box[]
 }
 
+// Debug panel: displays all box properties in real-time
 const GridState: React.FC<GridStateProps> = ({ boxes }) => {
   return (
     <div className="mt-4 md:mt-6 text-white bg-slate-900 rounded-lg p-3 sm:p-4 shadow-lg">
