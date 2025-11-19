@@ -6,3 +6,20 @@ body {
   margin: 0;
   padding: 0;
 }
+
+/* Ensure grid container is scrollable on small screens */
+.grid-scroll-container {
+  overflow-x: auto;
+  overflow-y: auto;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.grid-scroll-container::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.grid-scroll-container {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
