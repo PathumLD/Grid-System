@@ -21,7 +21,7 @@ const ResizeHandles: React.FC<ResizeHandlesProps> = ({ onResizeStart }) => {
       {handles.map(({ dir, pos }) => (
         <div
           key={dir}
-          className={`absolute w-3 h-3 sm:w-4 sm:h-4 bg-white border-2 border-green-600 rounded-full ${pos} hover:scale-125 transition-transform`}
+          className={`absolute w-1 h-1 sm:w-3 sm:h-3 bg-white border-1 border-green-700 rounded-full ${pos} hover:scale-125 transition-transform`}
           onMouseDown={(e) => onResizeStart(e, dir)}
         />
       ))}

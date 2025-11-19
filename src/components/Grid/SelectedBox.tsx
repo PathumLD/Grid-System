@@ -21,7 +21,7 @@ const SelectedBox: React.FC<SelectedBoxProps> = ({
   
   return (
     <div
-      className="absolute bg-green-500 rounded-md sm:rounded-lg cursor-move flex items-center justify-center text-white font-bold text-xl sm:text-2xl border-2 sm:border-4 border-green-300 shadow-2xl"
+      className="absolute bg-blue-300 rounded-md sm:rounded-lg cursor-move flex items-center justify-center text-white font-bold text-xl sm:text-2xl border-2 sm:border-4 border-blue-700 shadow-2xl"
       style={{
         left: box.left + GAP/2,
         top: box.top + GAP/2,
