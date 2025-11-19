@@ -1,12 +1,10 @@
 import { useState, useEffect } from 'react'
 import { AbsoluteBox, DragState, ResizeState } from '../types/grid'
-import { GRID_CONFIG } from '../types/grid'
-
-const { CELL_SIZE } = GRID_CONFIG
 
 export const useGridInteractions = (
   selectedBox: AbsoluteBox | null,
-  setSelectedBox: React.Dispatch<React.SetStateAction<AbsoluteBox | null>>
+  setSelectedBox: React.Dispatch<React.SetStateAction<AbsoluteBox | null>>,
+  gridConfig: { COLS: number, CELL_SIZE: number, GAP: number }
 ) => {
   const [dragState, setDragState] = useState<DragState | null>(null)
   const [resizeState, setResizeState] = useState<ResizeState | null>(null)
@@ -61,6 +59,8 @@ export const useGridInteractions = (
         let newWidth = resizeState.startWidth
         let newHeight = resizeState.startHeight
         
+        const { CELL_SIZE } = gridConfig
+        
         if (dir.includes('e')) {
           newWidth = Math.max(CELL_SIZE, resizeState.startWidth + dx)
         }
@@ -102,7 +102,7 @@ export const useGridInteractions = (
         document.removeEventListener('mouseup', handleMouseUp)
       }
     }
-  }, [dragState, resizeState, setSelectedBox])
+  }, [dragState, resizeState, setSelectedBox, gridConfig])
 
   return {
     handleDragStart,

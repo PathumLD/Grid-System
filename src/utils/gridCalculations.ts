@@ -1,9 +1,7 @@
 import { Box } from '../types/grid'
-import { GRID_CONFIG } from '../types/grid'
 
-const { CELL_SIZE, GAP, COLS } = GRID_CONFIG
-
-export const getAbsolutePosition = (box: Box) => {
+export const getAbsolutePosition = (box: Box, gridConfig: { COLS: number, CELL_SIZE: number, GAP: number }) => {
+  const { CELL_SIZE, GAP } = gridConfig
   return {
     left: box.col * (CELL_SIZE + GAP),
     top: box.row * (CELL_SIZE + GAP),
@@ -16,8 +14,10 @@ export const snapToGrid = (
   left: number, 
   top: number, 
   width: number, 
-  height: number
+  height: number,
+  gridConfig: { COLS: number, CELL_SIZE: number, GAP: number }
 ) => {
+  const { CELL_SIZE, GAP, COLS } = gridConfig
   const col = Math.max(0, Math.min(COLS - 1, Math.round(left / (CELL_SIZE + GAP))))
   const row = Math.max(0, Math.round(top / (CELL_SIZE + GAP)))
   const gridWidth = Math.max(1, Math.round(width / (CELL_SIZE + GAP)))
